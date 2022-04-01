@@ -23,10 +23,25 @@ namespace ConsoleApp3.Models
 
         }
 
-        public string GetPasswordChecker()
+        public bool PasswordChecker (string password)
         {
-            throw new NotImplementedException();
-        }
+            bool isUpper = false;
+            bool isLower = false;
+            bool isDigit = false;
+            if (password.Length>=8)
+            {
+                foreach (var item in password)
+                {
+                    if (char.IsUpper(item)) isUpper = true;
+                    else if (char.IsLower(item)) isLower = true;
+                    else if (char.IsDigit(item)) isDigit = true;
+
+
+                }
+                if (isDigit && isLower && isUpper) return true;
+            }
+            return false;
+        } 
 
         public void ShowInfo()
         {
